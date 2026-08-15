@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jade Martin Tunong — Graphics Designer & Creative Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Devicon for Programming Language Logos -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+<style>
+  :root{
+    --bg:#0a0a0f;
+    --bg-2:#13131a;
+    --accent:#ff5e3a;
+    --accent-2:#ffb800;
+    --accent-3:#00e6a8;
+    --accent-4:#ff3d8b;
+    --text:#f5f5f7;
+    --muted:#8a8a96;
+    --card:rgba(255,255,255,0.04);
+    --border:rgba(255,255,255,0.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:'Space Grotesk',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+  }
+  .font-display{font-family:'Syne',sans-serif;letter-spacing:-0.02em}
+
+  .art-bg{
+    position:fixed;inset:0;z-index:-1;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,94,58,0.25) 0%, transparent 35%),
+      radial-gradient(circle at 85% 15%, rgba(0,230,168,0.20) 0%, transparent 40%),
+      radial-gradient(circle at 75% 85%, rgba(255,61,139,0.22) 0%, transparent 40%),
+      radial-gradient(circle at 25% 75%, rgba(255,184,0,0.18) 0%, transparent 35%),
+      linear-gradient(135deg, #0a0a0f 0%, #13131a 100%);
+  }
+  .art-bg::before{
+    content:'';position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image:radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+  .blob{
+    position:absolute;border-radius:50%;filter:blur(80px);opacity:0.5;
+    animation:float 20s ease-in-out infinite;
+  }
+  .blob-1{width:500px;height:500px;background:#ff5e3a;top:-100px;left:-100px}
+  .blob-2{width:600px;height:600px;background:#00e6a8;bottom:-150px;right:-150px;animation-delay:-7s}
+  .blob-3{width:400px;height:400px;background:#ff3d8b;top:40%;left:50%;animation-delay:-14s}
+  @keyframes float{
+    0%,100%{transform:translate(0,0) scale(1)}
+    33%{transform:translate(80px,-60px) scale(1.1)}
+    66%{transform:translate(-60px,80px) scale(0.95)}
+  }
+  .noise{
+    position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .glass{
+    background:rgba(20,20,28,0.55);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid var(--border);
+  }
+  .gradient-text{
+    background:linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 50%, var(--accent-3) 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .nav-link{position:relative;transition:color 0.3s}
+  .nav-link::after{
+    content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;
+    background:var(--accent);transition:width 0.3s;
+  }
+  .nav-link:hover::after{width:100%}
+  .nav-link:hover{color:var(--accent)}
+
+  .btn-primary{
+    background:linear-gradient(135deg, var(--accent) 0%, var(--accent-4) 100%);
+    color:white;font-weight:600;
+    padding:14px 32px;border-radius:50px;
+    transition:all 0.3s;display:inline-flex;align-items:center;gap:10px;
+    box-shadow:0 10px 30px rgba(255,94,58,0.3);
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(255,94,58,0.5)}
+  .btn-ghost{
+    background:transparent;color:white;
+    border:1px solid var(--border);
+    padding:14px 32px;border-radius:50px;
+    transition:all 0.3s;display:inline-flex;align-items:center;gap:10px;
+  }
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+
+  .card-hover{transition:all 0.4s cubic-bezier(0.2,0.8,0.2,1)}
+  .card-hover:hover{transform:translateY(-8px);border-color:rgba(255,94,58,0.4)}
+
+  .skill-bar{height:6px;background:rgba(255,255,255,0.06);border-radius:10px;overflow:hidden;position:relative}
+  .skill-fill{
+    height:100%;border-radius:10px;
+    background:linear-gradient(90deg, var(--accent), var(--accent-2));
+    width:0;transition:width 1.5s cubic-bezier(0.2,0.8,0.2,1);
+  }
+
+  .reveal{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.2,0.8,0.2,1)}
+  .reveal.active{opacity:1;transform:translateY(0)}
+
+  .profile-frame{
+    position:relative;border-radius:24px;overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,0.5);
+  }
+  .profile-frame::before{
+    content:'';position:absolute;inset:0;z-index:2;
+    background:linear-gradient(180deg, transparent 50%, rgba(10,10,15,0.7) 100%);
+    pointer-events:none;
+  }
+  .profile-frame img{width:100%;height:100%;object-fit:cover;display:block}
+
+  .marquee{
+    display:flex;gap:60px;animation:scroll 30s linear infinite;
+    white-space:nowrap;
+  }
+  @keyframes scroll{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-50%)}
+  }
+
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 14px;border-radius:50px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid var(--border);
+    font-size:13px;color:var(--muted);
+  }
+  .dot-live{
+    width:8px;height:8px;border-radius:50%;background:var(--accent-3);
+    box-shadow:0 0 12px var(--accent-3);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:0.5;transform:scale(1.3)}
+  }
+
+  .exp-card{position:relative;overflow:hidden}
+  .exp-card::before{
+    content:'';position:absolute;top:0;left:0;width:4px;height:100%;
+    background:linear-gradient(180deg, var(--accent), var(--accent-4));
+  }
+
+  .geo-shape{position:absolute;pointer-events:none}
+
+  .cursor-glow{
+    position:fixed;width:400px;height:400px;border-radius:50%;
+    background:radial-gradient(circle, rgba(255,94,58,0.15) 0%, transparent 70%);
+    pointer-events:none;z-index:1;
+    transform:translate(-50%,-50%);
+    transition:transform 0.15s ease-out;
+    mix-blend-mode:screen;
+  }
+
+  /* Portfolio styles */
+  .portfolio-item{
+    position:relative;border-radius:20px;overflow:hidden;
+    transition:all 0.5s cubic-bezier(0.2,0.8,0.2,1);
+    cursor:pointer;
+  }
+  .portfolio-item img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform 0.7s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .portfolio-item:hover img{transform:scale(1.08)}
+  .portfolio-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 30%, rgba(10,10,15,0.95) 100%);
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:24px;opacity:0;transition:opacity 0.4s;
+  }
+  .portfolio-item:hover .portfolio-overlay{opacity:1}
+  .portfolio-tag{
+    display:inline-block;font-size:11px;
+    padding:4px 10px;border-radius:50px;
+    background:rgba(255,94,58,0.2);color:var(--accent);
+    border:1px solid rgba(255,94,58,0.3);
+    text-transform:uppercase;letter-spacing:0.05em;
+    margin-bottom:10px;width:fit-content;
+  }
+  .portfolio-view{
+    position:absolute;top:20px;right:20px;
+    width:44px;height:44px;border-radius:50%;
+    background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);
+    display:flex;align-items:center;justify-content:center;
+    color:white;transform:scale(0) rotate(-45deg);
+    transition:transform 0.4s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .portfolio-item:hover .portfolio-view{transform:scale(1) rotate(0deg)}
+
+  .filter-btn{
+    padding:8px 18px;border-radius:50px;
+    background:transparent;border:1px solid var(--border);
+    color:var(--muted);font-size:13px;cursor:pointer;
+    transition:all 0.3s;
+  }
+  .filter-btn.active,.filter-btn:hover{
+    background:linear-gradient(135deg, var(--accent), var(--accent-4));
+    color:white;border-color:transparent;
+  }
+
+  /* Lightbox */
+  .lightbox{
+    position:fixed;inset:0;z-index:100;
+    background:rgba(0,0,0,0.92);backdrop-filter:blur(10px);
+    display:none;align-items:center;justify-content:center;
+    padding:20px;
+  }
+  .lightbox.active{display:flex;animation:fadeIn 0.3s ease}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  .lightbox img{
+    max-width:90vw;max-height:85vh;border-radius:16px;
+    box-shadow:0 30px 80px rgba(0,0,0,0.7);
+  }
+  .lightbox-close{
+    position:absolute;top:24px;right:24px;
+    width:48px;height:48px;border-radius:50%;
+    background:rgba(255,255,255,0.1);
+    display:flex;align-items:center;justify-content:center;
+    color:white;cursor:pointer;font-size:20px;
+    transition:all 0.3s;
+  }
+  .lightbox-close:hover{background:var(--accent);transform:rotate(90deg)}
+  .lightbox-nav{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:52px;height:52px;border-radius:50%;
+    background:rgba(255,255,255,0.1);
+    display:flex;align-items:center;justify-content:center;
+    color:white;cursor:pointer;font-size:18px;
+    transition:all 0.3s;
+  }
+  .lightbox-nav:hover{background:var(--accent)}
+  .lightbox-prev{left:24px}
+  .lightbox-next{right:24px}
+  .lightbox-caption{
+    position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+    text-align:center;color:white;max-width:600px;
+  }
+
+  /* Video Portfolio Styles */
+  .video-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #13131a 0%, #1f1f29 100%);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .play-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(255, 94, 58, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(255,94,58,0.4);
+    animation: pulseGlow 2s infinite;
+    transition: transform 0.3s ease;
+  }
+  .video-card:hover .play-icon {
+    transform: scale(1.1);
+  }
+  @keyframes pulseGlow {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,94,58, 0.7); }
+    50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255,94,58, 0); }
+  }
+
+  /* Tools Section Styles */
+  .tool-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text);
+    transition: all 0.3s ease;
+  }
+  .tool-badge:hover {
+    background: rgba(255,94,58,0.08);
+    border-color: rgba(255,94,58,0.3);
+    transform: translateY(-2px);
+  }
+  .tool-badge i {
+    color: var(--accent);
+    width: 20px;
+    text-align: center;
+  }
+  .tool-category-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .tool-category-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Language Logos Grid */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 12px;
+  }
+  .logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 8px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  .logo-box:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,94,58,0.3);
+    transform: translateY(-3px);
+  }
+  .logo-box i {
+    font-size: 32px;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-box span {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  @media (max-width:768px){
+    .lightbox-nav{width:42px;height:42px}
+    .lightbox-prev{left:10px}
+    .lightbox-next{right:10px}
+  }
+</style>
+</head>
+<body>
+
+<div class="art-bg">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <svg class="geo-shape" style="top:10%;left:8%;width:80px;height:80px;opacity:0.15;animation:drift 30s linear infinite;" viewBox="0 0 100 100">
+    <polygon points="50,5 95,80 5,80" fill="none" stroke="#ff5e3a" stroke-width="2"/>
+  </svg>
+  <svg class="geo-shape" style="top:20%;right:12%;width:60px;height:60px;opacity:0.2;animation:drift 35s linear infinite reverse;" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="45" fill="none" stroke="#00e6a8" stroke-width="2" stroke-dasharray="5,5"/>
+  </svg>
+  <svg class="geo-shape" style="top:55%;left:5%;width:70px;height:70px;opacity:0.18;animation:drift 28s linear infinite;" viewBox="0 0 100 100">
+    <rect x="10" y="10" width="80" height="80" fill="none" stroke="#ffb800" stroke-width="2" transform="rotate(15 50 50)"/>
+  </svg>
+  <svg class="geo-shape" style="top:70%;right:8%;width:90px;height:90px;opacity:0.15;animation:drift 32s linear infinite reverse;" viewBox="0 0 100 100">
+    <path d="M50,5 L95,50 L50,95 L5,50 Z" fill="none" stroke="#ff3d8b" stroke-width="2"/>
+  </svg>
+</div>
+<div class="noise"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- NAVIGATION -->
+<nav class="fixed top-0 left-0 right-0 z-50 glass">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center font-display font-bold text-lg">J</div>
+      <span class="font-display font-bold text-xl">Jade<span class="gradient-text">.</span></span>
+    </div>
+    <div class="hidden md:flex items-center gap-8 text-sm">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#portfolio" class="nav-link">My Designs</a>
+      <a href="#video" class="nav-link">Video</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <a href="#contact" class="hidden md:inline-flex btn-primary text-sm" style="padding:10px 22px">
+      Hire Me <i class="fas fa-arrow-right text-xs"></i>
+    </a>
+    <button id="menuBtn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden border-t border-white/10 px-6 py-4 flex-col gap-4">
+    <a href="#home" class="block py-2">Home</a>
+    <a href="#about" class="block py-2">About</a>
+    <a href="#portfolio" class="block py-2">My Designs</a>
+    <a href="#video" class="block py-2">Video</a>
+    <a href="#experience" class="block py-2">Experience</a>
+    <a href="#skills" class="block py-2">Skills</a>
+    <a href="#education" class="block py-2">Education</a>
+    <a href="#contact" class="block py-2">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="relative min-h-screen flex items-center pt-24 pb-12 px-6">
+  <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center relative z-10">
+    <div class="lg:col-span-7 reveal">
+      <div class="badge mb-6">
+        <span class="dot-live"></span>
+        Available for freelance projects
+      </div>
+      <h1 class="font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-6">
+        Hi, I'm <span class="gradient-text">Jade</span><br>
+        Creative<br>
+        <span class="italic font-medium" style="color:var(--accent-3)">Designer.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-400 max-w-xl mb-8 leading-relaxed">
+        Graphics Designer with 7 years of experience crafting layouts, color harmony, and typography that follow brand standards — delivering clear, professional, on-schedule design work.
+      </p>
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="#portfolio" class="btn-primary">
+          View My Designs <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn-ghost">
+          Let's Talk
+        </a>
+      </div>
+      <div class="grid grid-cols-3 gap-6 max-w-lg">
+        <div>
+          <div class="font-display font-bold text-3xl md:text-4xl gradient-text" data-count="7">0</div>
+          <div class="text-xs text-gray-500 mt-1 uppercase tracking-wider">Years Exp.</div>
+        </div>
+        <div>
+          <div class="font-display font-bold text-3xl md:text-4xl gradient-text" data-count="7">0</div>
+          <div class="text-xs text-gray-500 mt-1 uppercase tracking-wider">Design Works</div>
+        </div>
+        <div>
+          <div class="font-display font-bold text-3xl md:text-4xl gradient-text" data-count="100">0</div>
+          <div class="text-xs text-gray-500 mt-1 uppercase tracking-wider">% Dedication</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5 reveal">
+      <div class="relative">
+        <div class="absolute -top-6 -left-6 w-24 h-24 border-2 border-orange-500 rounded-2xl rotate-12 opacity-60"></div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-pink-500 to-orange-500 rounded-full blur-2xl opacity:40"></div>
+        <div class="absolute -top-4 -right-4 w-20 h-20 border-2 border-emerald-400 rounded-full opacity-50"></div>
+
+        <div class="profile-frame">
+          <img src="https://z-cdn-media.chatglm.cn/files/1820fe49-b805-4263-9229-0e1a4548334b.jpg?auth_key=1886765551-17a0f811f53a40bfa748643927bd168f-0-2c139e28aba94a032a0cf23bfd7ccf7d" alt="Jade Martin Tunong" class="aspect-[4/5]">
+          <div class="absolute bottom-6 left-6 right-6 z-10">
+            <div class="glass rounded-2xl p-4 flex items-center gap-3">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center">
+                <i class="fas fa-pen-nib text-white"></i>
+              </div>
+              <div>
+                <div class="font-display font-bold">Jade Martin Tunong</div>
+                <div class="text-xs text-gray-400">Graphics Designer · Philippines</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute -left-8 top-1/3 glass rounded-xl px-3 py-2 text-xs hidden md:block" style="animation:float 6s ease-in-out infinite">
+          <i class="fas fa-palette text-orange-400 mr-1"></i> Color Theory
+        </div>
+        <div class="absolute -right-6 top-2/3 glass rounded-xl px-3 py-2 text-xs hidden md:block" style="animation:float 6s ease-in-out infinite 2s">
+          <i class="fas fa-font text-emerald-400 mr-1"></i> Typography
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="py-6 border-y border-white/5 overflow-hidden bg-black/30">
+  <div class="marquee font-display text-3xl md:text-5xl font-bold text-white/10">
+    <span>GRAPHIC DESIGN</span><span class="text-orange-500/30">●</span>
+    <span>BRAND IDENTITY</span><span class="text-pink-500/30">●</span>
+    <span>TYPOGRAPHY</span><span class="text-emerald-400/30">●</span>
+    <span>Y2K AESTHETIC</span><span class="text-yellow-400/30">●</span>
+    <span>BAUHAUS</span><span class="text-orange-500/30">●</span>
+    <span>STREETWEAR</span><span class="text-pink-500/30">●</span>
+    <span>ILLUSTRATION</span><span class="text-emerald-400/30">●</span>
+    <span>VIDEO EDITING</span><span class="text-yellow-400/30">●</span>
+    <span>GRAPHIC DESIGN</span><span class="text-orange-500/30">●</span>
+    <span>BRAND IDENTITY</span><span class="text-pink-500/30">●</span>
+    <span>TYPOGRAPHY</span><span class="text-emerald-400/30">●</span>
+    <span>Y2K AESTHETIC</span><span class="text-yellow-400/30">●</span>
+    <span>BAUHAUS</span><span class="text-orange-500/30">●</span>
+    <span>STREETWEAR</span><span class="text-pink-500/30">●</span>
+    <span>ILLUSTRATION</span><span class="text-emerald-400/30">●</span>
+    <span>VIDEO EDITING</span><span class="text-yellow-400/30">●</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 px-6 relative">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-5 reveal">
+      <div class="text-sm text-orange-400 uppercase tracking-widest mb-3">About Me</div>
+      <h2 class="font-display font-bold text-4xl md:text-5xl mb-6 leading-tight">
+        Designing with <span class="gradient-text">precision</span> &amp; purpose.
+      </h2>
+      <p class="text-gray-400 leading-relaxed mb-4">
+        I'm Jade Martin Tunong, a multidisciplinary creative based in Mati City, Davao Oriental, Philippines. With experience spanning Graphic Design, Cybersecurity, and Communications, I bring a unique blend of artistic sensibility and technical discipline to every project.
+      </p>
+      <p class="text-gray-400 leading-relaxed mb-6">
+        Through my work in Graphic Design, I have learned a great deal about proper layout, color harmony, typography, and following brand standards consistently. I developed strong attention to detail, learned how to deliver quality work on schedule, and create clear, professional designs that are easy to understand.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="badge"><i class="fas fa-map-marker-alt text-orange-400"></i> Mati City, Davao Oriental</span>
+        <span class="badge"><i class="fas fa-envelope text-emerald-400"></i> jademartunong12@gmail.com</span>
+        <span class="badge"><i class="fas fa-phone text-pink-400"></i> +63 975 988 0185</span>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 reveal">
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="glass card-hover rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center mb-4">
+            <i class="fas fa-pen-nib text-orange-400 text-xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl mb-2">Graphic Design</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Layout, color harmony, typography, and consistent brand standards with attention to detail.</p>
+        </div>
+        <div class="glass card-hover rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-4">
+            <i class="fas fa-shield-halved text-emerald-400 text-xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl mb-2">Cybersecurity</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">System monitoring, incident response, ISO 27001 compliance, and security operations.</p>
+        </div>
+        <div class="glass card-hover rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center mb-4">
+            <i class="fas fa-phone-volume text-pink-400 text-xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl mb-2">Communication</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Professional cold calling, clear messaging, time management, and consistent delivery.</p>
+        </div>
+        <div class="glass card-hover rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center mb-4">
+            <i class="fas fa-video text-yellow-400 text-xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl mb-2">Video Editing</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Transforming concepts into engaging visual stories through dynamic motion and video design.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO / MY DESIGNS -->
+<section id="portfolio" class="py-24 px-6 relative">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <div class="text-sm text-orange-400 uppercase tracking-widest mb-3">My Design Work</div>
+      <h2 class="font-display font-bold text-4xl md:text-6xl mb-4">
+        Featured <span class="gradient-text">Designs</span>
+      </h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">A collection of my graphic design work — from brand promotions and food advertisements to Y2K collages, Bauhaus-inspired posters, illustrations, and streetwear concepts. Each piece reflects my passion for layout, typography, and visual storytelling.</p>
+    </div>
+
+    <!-- Filter -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="promo">Brand &amp; Promo</button>
+      <button class="filter-btn" data-filter="poster">Posters</button>
+      <button class="filter-btn" data-filter="illustration">Illustration</button>
+      <button class="filter-btn" data-filter="streetwear">Streetwear</button>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
+
+      <!-- Design 1: Tuna Panga Grilled -->
+      <div class="portfolio-item reveal" data-category="promo" data-index="0"
+           data-title="Tuna Panga Grilled — King Ben's"
+           data-desc="Promotional advertisement featuring grilled Tuna Panga with flame and smoke effects. Designed to showcase the restaurant's signature seafood dish with bold, appetizing visuals.">
+        <div class="aspect-[3/4] overflow-hidden bg-zinc-900">
+          <img src="https://z-cdn-media.chatglm.cn/files/aab7586d-c234-4fd6-8b14-396f5a171038.jpg?auth_key=1886766762-20fe8b5d75b647dea59a303da6f95b70-0-49e3a98f380208f7d71d14d55f33dcee" alt="Tuna Panga Grilled">
+        </div>
+        <div class="portfolio-view"><i class="fas fa-expand"></i></div>
+        <div class="portfolio-overlay">
+          <span class="portfolio-tag">Food Advertisement</span>
+          <h3 class="font-display font-bold text-xl mb-1">Tuna Panga Grilled</h3>
+          <p class="text-sm text-gray-400">King Ben's Seafood House · Print Ad</p>
+        </div>
+      </div>
+
+      <!-- Design 2: Sambuokan Promo -->
+      <div class="portfolio-item reveal" data-category="promo" data-index="1"
+           data-title="Sambuokan Promo — King Ben's"
+           data-desc="Special event promotion poster for Sambuokan Festival 2023. Featured Chicken BBQ with unlimited rice and a glass of iced tea for PHP 119. Designed with warm, inviting tones to drive event sales.">
+        <div class="aspect-[3/4] overflow-hidden bg-zinc-900">
+          <img src="https://z-cdn-media.chatglm.cn/files/4c0381f5-1386-434a-8833-c86709960646.jpg?auth_key=1886766762-7b076168be75443c88e07454a8710d52-0-9b486248390cab78e7483060b09bff89" alt="Sambuokan Promo">
+        </div>
+        <div class="portfolio-view"><i class="fas fa-expand"></i></div>
+        <div class="portfolio-overlay">
+          <span class="portfolio-tag">Event Promo</span>
+          <h3 class="font-display font-bold text-xl mb-1">Sambuokan Promo 2023</h3>
+          <p class="text-sm text-gray-400">Chicken BBQ + Unli Rice + Iced Tea · PHP 119</p>
+        </div>
+      </div>
+
+      <!-- Design 3: Chicken Inasal -->
+      <div class="portfolio-item reveal" data-category="promo" data-index="2"
+           data-title="Chicken Inasal Unli-Rice — King Ben's"
+           data-desc="Promotional poster for Chicken Inasal with unlimited rice at PHP 170. Designed with flame elements and banana leaf presentation to evoke authentic Filipino BBQ dining.">
+        <div class="aspect-[3/4] overflow-hidden bg-zinc-900">
+          <img src="https://z-cdn-media.chatglm.cn/files/e18dc593-6b65-46b0-b54b-dfef6a117d04.jpg?auth_key=1886766762-990a012f1a854ad6a269403befc694ac-0-ec5ff64061c6dbf36841a6448eb132b9" alt="Chicken Inasal">
+        </div>
+        <div class="portfolio-view"><i class="fas fa-expand"></i></div>
+        <div class="portfolio-overlay">
+          <span class="portfolio-tag">Menu Promotion</span>
+          <h3 class="font-display font-bold text-xl mb-1">Chicken Inasal Unli-Rice</h3>
+          <p class="text-sm text-gray-400">Filipino BBQ · PHP 170 Only</p>
+        </div>
+      </div>
+
+      <!-- Design 4: Y2K Posters -->
+      <div class="portfolio-item reveal" data-category="poster" data-index="3"
+           data-title="Y2K Posters — Retro Collage"
+           data-desc="A Y2K-style poster collage featuring retro elements — BAPE sneakers, Nokia phones, pink Cadillac, and magazine aesthetics like 'BLISS' and 'SPICY MAGAZINE'. Captures the nostalgic pop culture vibe of the late 90s and early 2000s with rich colors and layered compositions.">
+        <div class="aspect-[3/4] overflow-hidden bg-zinc-900">
+          <img src="https://z-cdn-media.chatglm.cn/files/88816baa-001d-4d08-af26-c3b0c7aebd81.jpg?auth_key=1886768041-4909d6902f944106a5406fd3f99acce0-0-eed2bde0de92d042f4ebd7ca1cd19ede" alt="Y2K Posters Collage">
+        </div>
+        <div class="portfolio-view"><i class="fas fa-expand"></i></div>
+        <div class="portfolio-overlay">
+          <span class="portfolio-tag">Y2K · Retro</span>
+          <h3 class="font-display font-bold text-xl mb-1">Y2K Posters</h3>
+          <p class="text-sm text-gray-400">Retro collage · 90s–00s pop culture</p>
+        </div>
+      </div>
+
+      <!-- Design 5: Bauhaus MoMA Collection -->
+      <div class="portfolio-item reveal" data-category="poster" data-index="4"
+           data-title="Bauhaus MoMA — Visual Collection"
+           data-desc="A Bauhaus collection exploring the visual language of the legendary design movement. Geometric forms, striking color contrasts, and typographic experimentation come together in exhibition-style layouts. A study in minimalism, proportion, and the enduring influence of Bauhaus design.">
+        <div class="aspect-[3/4] overflow-hidden bg-zinc-900">
+          <img src="https://z-cdn-media.chatglm.cn/files/ca45ee54-99d0-4383-8217-97fa1bedbdb0.jpg?auth_key=1886768041-44070fd5388f4b50a7a8ba0aee62fec0-0-accdf4ae8cc108b448209b98529b8718" alt="Bauhaus MoMA Collection">
+        </div>
+        <div class="portfolio-view"><i class="fas fa-expand"></i></div>
+        <div class="portfolio-overlay">
+          <span class="portfolio-tag">Bauhaus · MoMA</span>
+          <h3 class="font-display font-bold text-xl mb-1">Bauhaus MoMA</h3>
+          <p class="text-sm text-gray-400">Visual collection · Exhibition style</p>
+        </div>
+      </div>
+
+      <!-- Design 6: Illustrations -->
+      <div class="portfolio-item reveal" data-category="illustration" data-index="5"
+           data-title="Illustrations — Creative Collage"
+           data-desc="A diverse collage of illustrations spanning music, cityscapes, and brand-themed artwork. Includes references to Mumbai, 'The Warriors', 'Just Do It', and Perrier. The collection showcases versatility across subjects — from artistic figures and urban scenes to product illustrations — all unified by a playful, creative energy.">
+        <div class="aspect-[3/4] overflow-hidden bg-zinc-900">
+          <img src="https://z-cdn-media.chatglm.cn/files/d4613045-a39f-411e-a1f7-fad782281b2a.jpg?auth_key=1886768041-45eb443b84fb42c1b22710958ace33a9-0-d46aa82968ed7aef797e143afb15d24d" alt="Illustrations Collage">
+        </div>
+        <div class="portfolio-view"><i class="fas fa-expand"></i></div>
+        <div class="portfolio-overlay">
+          <span class="portfolio-tag">Illustration</span>
+          <h3 class="font-display font-bold text-xl mb-1">Illustrations</h3>
+          <p class="text-sm text-gray-400">Music · City · Brand-themed collage</p>
+        </div>
+      </div>
+
+      <!-- Design 7: Street Wear -->
+      <div class="portfolio-item reveal" data-category="streetwear" data-index="6"
+           data-title="Street Wear — Urban Collection"
+           data-desc="A streetwear-themed design collection featuring creative apparel and poster concepts. Includes artistic figures, sunflower motifs, cartoon bears, and bold statements like 'I Need Some Space', 'Sunflower Is Dead', and 'Fear of Losing You'. Blends retro and modern visuals to express the raw, creative energy of street culture.">
+        <div class="aspect-[3/4] overflow-hidden bg-zinc-900">
+          <img src="https://z-cdn-media.chatglm.cn/files/d3908f17-8069-48b3-8432-78ce52b5e50e.jpg?auth_key=1886768041-7e60d2fba9c640658ff3f3902f21ae41-0-ef6d12a79584feb1314934ae4289c187" alt="Street Wear Collection">
+        </div>
+        <div class="portfolio-view"><i class="fas fa-expand"></i></div>
+        <div class="portfolio-overlay">
+          <span class="portfolio-tag">Streetwear · Fashion</span>
+          <h3 class="font-display font-bold text-xl mb-1">Street Wear</h3>
+          <p class="text-sm text-gray-400">Urban collection · Apparel concepts</p>
+        </div>
+      </div>
+
+      <!-- Coming Soon placeholder card -->
+      <div class="glass card-hover rounded-2xl p-8 flex flex-col items-center justify-center text-center reveal" style="min-height:400px">
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center mb-4">
+          <i class="fas fa-plus text-2xl gradient-text"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-2">More Projects</h3>
+        <p class="text-sm text-gray-400 mb-4">Additional design work available upon request — including brand kits, social media graphics, and print materials.</p>
+        <a href="#contact" class="text-sm text-orange-400 hover:text-orange-300 transition-colors">Request Full Portfolio →</a>
+      </div>
+
+    </div>
+
+    <!-- Portfolio Stats -->
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
+      <div class="glass rounded-2xl p-6 text-center">
+        <div class="font-display font-bold text-3xl gradient-text mb-1" data-count="7">0</div>
+        <div class="text-xs text-gray-500 uppercase tracking-wider">Design Works</div>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center">
+        <div class="font-display font-bold text-3xl gradient-text mb-1" data-count="5">0</div>
+        <div class="text-xs text-gray-500 uppercase tracking-wider">Design Styles</div>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center">
+        <div class="font-display font-bold text-3xl gradient-text mb-1" data-count="7">0</div>
+        <div class="text-xs text-gray-500 uppercase tracking-wider">Years Active</div>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center">
+        <div class="font-display font-bold text-3xl gradient-text mb-1">∞</div>
+        <div class="text-xs text-gray-500 uppercase tracking-wider">Creative Ideas</div>
+      </div>
+    </div>
+
+    <!-- Design Styles Showcase -->
+    <div class="mt-16 reveal">
+      <h3 class="font-display font-bold text-2xl md:text-3xl mb-6 text-center">Design <span class="gradient-text">Styles I Explore</span></h3>
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="badge"><i class="fas fa-utensils text-orange-400"></i> Food &amp; Promo</span>
+        <span class="badge"><i class="fas fa-music text-pink-400"></i> Y2K Aesthetic</span>
+        <span class="badge"><i class="fas fa-shapes text-emerald-400"></i> Bauhaus</span>
+        <span class="badge"><i class="fas fa-pen-fancy text-yellow-400"></i> Illustration</span>
+        <span class="badge"><i class="fas fa-shirt text-orange-400"></i> Streetwear</span>
+        <span class="badge"><i class="fas fa-video text-pink-400"></i> Video Editing</span>
+        <span class="badge"><i class="fas fa-newspaper text-emerald-400"></i> Editorial</span>
+        <span class="badge"><i class="fas fa-palette text-yellow-400"></i> Color Theory</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO PORTFOLIO SECTION -->
+<section id="video" class="py-24 px-6 relative">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <div class="text-sm text-orange-400 uppercase tracking-widest mb-3">Motion & Video</div>
+      <h2 class="font-display font-bold text-4xl md:text-6xl mb-4">
+        Video <span class="gradient-text">Portfolio</span>
+      </h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Click on any video below to watch the full presentation on Google Drive.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Video 1 -->
+      <a href="https://drive.google.com/file/d/1264LlG-no3vl_Nj3MZKGu-qOqjpTEflN/view?usp=sharing" target="_blank" class="glass card-hover rounded-2xl p-3 reveal relative overflow-hidden block">
+        <div class="video-card aspect-video">
+          <div class="play-icon">
+            <i class="fas fa-play text-white text-xl ml-1"></i>
+          </div>
+        </div>
+        <div class="mt-3 px-2 flex items-center justify-between">
+            <h3 class="font-display font-bold text-lg">Video Presentation 1</h3>
+            <span class="text-xs text-gray-500 flex items-center gap-1"><i class="fab fa-google-drive"></i> Watch on Drive</span>
+        </div>
+      </a>
+
+      <!-- Video 2 -->
+      <a href="https://drive.google.com/file/d/1bybupDqf8oeSUyVZF8S3SlV0ahfISwWX/view?usp=drive_link" target="_blank" class="glass card-hover rounded-2xl p-3 reveal relative overflow-hidden block">
+        <div class="video-card aspect-video">
+          <div class="play-icon">
+            <i class="fas fa-play text-white text-xl ml-1"></i>
+          </div>
+        </div>
+        <div class="mt-3 px-2 flex items-center justify-between">
+            <h3 class="font-display font-bold text-lg">Video Presentation 2</h3>
+            <span class="text-xs text-gray-500 flex items-center gap-1"><i class="fab fa-google-drive"></i> Watch on Drive</span>
+        </div>
+      </a>
+
+      <!-- Video 3 -->
+      <a href="https://drive.google.com/file/d/1uhOdyV93Y1EfI_hlyDboHqVdm6PExxMH/view?usp=drive_link" target="_blank" class="glass card-hover rounded-2xl p-3 reveal relative overflow-hidden block">
+        <div class="video-card aspect-video">
+          <div class="play-icon">
+            <i class="fas fa-play text-white text-xl ml-1"></i>
+          </div>
+        </div>
+        <div class="mt-3 px-2 flex items-center justify-between">
+            <h3 class="font-display font-bold text-lg">Video Presentation 3</h3>
+            <span class="text-xs text-gray-500 flex items-center gap-1"><i class="fab fa-google-drive"></i> Watch on Drive</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="py-24 px-6 relative">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="text-sm text-orange-400 uppercase tracking-widest mb-3">Work Experience</div>
+      <h2 class="font-display font-bold text-4xl md:text-6xl">
+        My <span class="gradient-text">Journey</span>
+      </h2>
+      <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Years of experience across three disciplines — building creativity, security, and communication expertise.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      
+      <!-- Experience 1: King Ben's -->
+      <div class="glass card-hover rounded-2xl p-7 exp-card reveal">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center">
+            <i class="fas fa-pen-nib text-white text-xl"></i>
+          </div>
+          <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-400">2017 — 2024</span>
+        </div>
+        <div class="text-xs text-orange-400 uppercase tracking-wider mb-1">King Ben's · Local PH</div>
+        <h3 class="font-display font-bold text-2xl mb-1">Graphics Designer</h3>
+        <div class="text-xs text-gray-500 mb-4">7 Years Experience</div>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Through my work in Graphic Design, I have learned a great deal about proper layout, color harmony, typography, and following brand standards consistently. I developed strong attention to detail, learned how to deliver quality work on schedule, and create clear, professional designs that are easy to understand. The discipline, creativity, and precision I gained have become very valuable skills that I apply to all kinds of work.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Layout</span>
+          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Typography</span>
+          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Brand Standards</span>
+        </div>
+      </div>
+
+      <!-- Experience 2: BT Group -->
+      <div class="glass card-hover rounded-2xl p-7 exp-card reveal">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center">
+            <i class="fas fa-shield-halved text-white text-xl"></i>
+          </div>
+          <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-400">2025 — 2026</span>
+        </div>
+        <div class="text-xs text-emerald-400 uppercase tracking-wider mb-1">BT Group · WFH</div>
+        <h3 class="font-display font-bold text-2xl mb-1">Cybersecurity Engineer</h3>
+        <div class="text-xs text-gray-500 mb-4">6 Months Experience</div>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Through my work and hands-on practice in Cybersecurity, I have gained solid experience in monitoring systems, identifying unusual activity, and following proper procedures to protect information and infrastructure. I learned how to investigate alerts thoroughly, trace the root cause of issues, and coordinate with teams to apply the right fixes and safeguards. I also developed strong discipline in following standards like ISO 27001, maintaining accurate records, and staying updated on emerging threats and best practices. This experience taught me to be patient, precise, and always alert qualities that are essential for reliable security operations.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">ISO 27001</span>
+          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Monitoring</span>
+          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Incident Response</span>
+        </div>
+      </div>
+
+      <!-- Experience 3: Dynata Global -->
+      <div class="glass card-hover rounded-2xl p-7 exp-card reveal">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+            <i class="fas fa-phone-volume text-white text-xl"></i>
+          </div>
+          <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-400">2024 — 2025</span>
+        </div>
+        <div class="text-xs text-yellow-400 uppercase tracking-wider mb-1">Dynata Global · WFH</div>
+        <h3 class="font-display font-bold text-2xl mb-1">Cold Caller</h3>
+        <div class="text-xs text-gray-500 mb-4">6 Months Experience</div>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          As a Cold Caller, I gained valuable experience communicating professionally with different types of people, following standard procedures, and delivering clear messages consistently. I learned how to stay calm and polite, handle questions or concerns effectively, and keep accurate records of every call and outcome. This role taught me discipline, resilience, and how to manage my time well to meet daily targets — skills that help me work reliably and communicate clearly in any position.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Communication</span>
+          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Time Management</span>
+          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Resilience</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-24 px-6 relative">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="text-sm text-orange-400 uppercase tracking-widest mb-3">Skills &amp; Expertise</div>
+      <h2 class="font-display font-bold text-4xl md:text-6xl">
+        What I <span class="gradient-text">Bring</span>
+      </h2>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12">
+      <div class="reveal">
+        <h3 class="font-display font-bold text-2xl mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-orange-500/20 flex items-center justify-center">
+            <i class="fas fa-palette text-orange-400"></i>
+          </span>
+          Design &amp; Creative
+        </h3>
+        <div class="space-y-5">
+          <div>
+            <div class="flex justify-between mb-2"><span>Graphic Design</span><span class="text-gray-500 text-sm">Expert</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-2"><span>Web Design Basics</span><span class="text-gray-500 text-sm">Advanced</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-2"><span>Video & Motion Graphics</span><span class="text-gray-500 text-sm">Advanced</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-2"><span>Attention to Detail</span><span class="text-gray-500 text-sm">Expert</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <h3 class="font-display font-bold text-2xl mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+            <i class="fas fa-shield-halved text-emerald-400"></i>
+          </span>
+          Technical &amp; Professional
+        </h3>
+        <div class="space-y-5">
+          <div>
+            <div class="flex justify-between mb-2"><span>Cybersecurity Operations</span><span class="text-gray-500 text-sm">Advanced</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-2"><span>Incident Response</span><span class="text-gray-500 text-sm">Advanced</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-2"><span>Technical Documentation</span><span class="text-gray-500 text-sm">Advanced</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-2"><span>Effective Communication</span><span class="text-gray-500 text-sm">Expert</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Software & Tools Section -->
+    <div class="mt-20 reveal">
+      <h3 class="font-display font-bold text-2xl md:text-3xl mb-10 text-center">Software &amp; <span class="gradient-text">Tools I Use</span></h3>
+      
+      <div class="space-y-8 max-w-5xl mx-auto">
+        
+        <!-- Adobe Creative Cloud -->
+        <div>
+          <h4 class="tool-category-title"><i class="fas fa-bezier-curve text-orange-400"></i> Adobe Creative Cloud</h4>
+          <div class="flex flex-wrap gap-3">
+            <span class="tool-badge"><i class="fas fa-image"></i> Adobe Photoshop</span>
+            <span class="tool-badge"><i class="fas fa-pen-nib"></i> Adobe Illustrator</span>
+            <span class="tool-badge"><i class="fas fa-book-open"></i> Adobe InDesign</span>
+            <span class="tool-badge"><i class="fas fa-camera-retro"></i> Adobe Lightroom</span>
+            <span class="tool-badge"><i class="fas fa-bolt"></i> Adobe Express</span>
+            <span class="tool-badge"><i class="fas fa-film"></i> Adobe Premiere Pro</span>
+            <span class="tool-badge"><i class="fas fa-clapperboard"></i> After Effects</span>
+            <span class="tool-badge"><i class="fab fa-adobe"></i> Adobe XD</span>
+          </div>
+        </div>
+
+        <!-- Microsoft Suite & Tools -->
+        <div>
+          <h4 class="tool-category-title"><i class="fab fa-microsoft text-emerald-400"></i> Microsoft Suite & Tools</h4>
+          <div class="flex flex-wrap gap-3">
+            <span class="tool-badge"><i class="fas fa-file-word"></i> Microsoft Word</span>
+            <span class="tool-badge"><i class="fas fa-file-excel"></i> Microsoft Excel</span>
+            <span class="tool-badge"><i class="fas fa-file-powerpoint"></i> Microsoft PowerPoint</span>
+            <span class="tool-badge"><i class="fas fa-envelope"></i> Microsoft Outlook</span>
+            <span class="tool-badge"><i class="fas fa-sticky-note"></i> Microsoft OneNote</span>
+            <span class="tool-badge"><i class="fas fa-newspaper"></i> Microsoft Publisher</span>
+            <span class="tool-badge"><i class="fas fa-database"></i> Microsoft Access</span>
+            <span class="tool-badge"><i class="fas fa-users"></i> Microsoft Teams</span>
+            <span class="tool-badge"><i class="fas fa-chart-line"></i> Microsoft Power BI</span>
+            <span class="tool-badge"><i class="fas fa-tasks"></i> Microsoft Planner</span>
+            <span class="tool-badge"><i class="fas fa-project-diagram"></i> Microsoft Visio</span>
+            <span class="tool-badge"><i class="fas fa-calendar-check"></i> Microsoft Project</span>
+            <span class="tool-badge"><i class="fas fa-magic"></i> Microsoft Designer</span>
+            <span class="tool-badge"><i class="fas fa-video"></i> Microsoft Clipchamp</span>
+          </div>
+        </div>
+
+        <!-- Design & Editing -->
+        <div>
+          <h4 class="tool-category-title"><i class="fas fa-palette text-pink-400"></i> Design & Editing</h4>
+          <div class="flex flex-wrap gap-3">
+            <span class="tool-badge"><i class="fas fa-scissors"></i> CapCut</span>
+            <span class="tool-badge"><i class="fas fa-paint-brush"></i> Canva</span>
+            <span class="tool-badge"><i class="fas fa-drafting-compass"></i> AutoCAD</span>
+          </div>
+        </div>
+
+        <!-- Development & Security -->
+        <div>
+          <h4 class="tool-category-title"><i class="fas fa-terminal text-yellow-400"></i> Development & Security</h4>
+          <div class="flex flex-wrap gap-3">
+            <span class="tool-badge"><i class="fab fa-linux"></i> Kali Linux</span>
+            <span class="tool-badge"><i class="fas fa-code"></i> VS Code</span>
+            <span class="tool-badge"><i class="fab fa-docker"></i> Docker Desktop</span>
+            <span class="tool-badge"><i class="fas fa-robot"></i> n8n AI Automation</span>
+          </div>
+        </div>
+
+        <!-- Web & Scripting Languages (Logos) -->
+        <div>
+          <h4 class="tool-category-title"><i class="fas fa-globe text-blue-400"></i> Web & Scripting Languages</h4>
+          <div class="logo-grid">
+            <div class="logo-box"><i class="devicon-html5-plain colored"></i><span>HTML</span></div>
+            <div class="logo-box"><i class="devicon-css3-plain colored"></i><span>CSS</span></div>
+            <div class="logo-box"><i class="devicon-mysql-plain colored"></i><span>SQL</span></div>
+            <div class="logo-box"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
+            <div class="logo-box"><i class="devicon-perl-plain colored"></i><span>Perl</span></div>
+            <div class="logo-box"><i class="devicon-bash-plain colored"></i><span>Shell / Bash</span></div>
+            <div class="logo-box"><i class="fas fa-moon" style="color: #3b82f6;"></i><span>Lua</span></div>
+            <div class="logo-box"><i class="devicon-r-plain colored"></i><span>R</span></div>
+          </div>
+        </div>
+
+        <!-- Mobile & Specialized Languages (Logos) -->
+        <div>
+          <h4 class="tool-category-title"><i class="fas fa-mobile-screen text-purple-400"></i> Mobile & Specialized Languages</h4>
+          <div class="logo-grid">
+            <div class="logo-box"><i class="devicon-objectivec-plain colored"></i><span>Objective-C</span></div>
+            <div class="logo-box"><i class="fas fa-square-root-variable" style="color: #ff5e3a;"></i><span>MATLAB</span></div>
+            <div class="logo-box"><i class="devicon-scala-plain colored"></i><span>Scala</span></div>
+            <div class="logo-box"><i class="devicon-haskell-plain colored"></i><span>Haskell</span></div>
+            <div class="logo-box"><i class="fas fa-code" style="color: #00e6a8;"></i><span>Groovy</span></div>
+            <div class="logo-box"><i class="devicon-rails-plain colored"></i><span>Ruby on Rails</span></div>
+            <div class="logo-box"><i class="fas fa-network-wired" style="color: #ffb800;"></i><span>ASP.NET</span></div>
+            <div class="logo-box"><i class="devicon-vuejs-plain colored"></i><span>Vue.js</span></div>
+            <div class="logo-box"><i class="devicon-react-plain colored"></i><span>React</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="py-24 px-6 relative">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="text-sm text-orange-400 uppercase tracking-widest mb-3">Education</div>
+      <h2 class="font-display font-bold text-4xl md:text-6xl">
+        Academic <span class="gradient-text">Background</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div class="glass card-hover rounded-2xl p-7 reveal relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/20 to-transparent rounded-full -mr-16 -mt-16"></div>
+        <div class="flex items-start justify-between mb-4 relative">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center">
+            <i class="fas fa-graduation-cap text-white text-xl"></i>
+          </div>
+          <span class="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400">2024 — 2025</span>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-2">University of Immaculate Conception</h3>
+        <div class="text-orange-400 text-sm mb-3">Computer Science · 1st Year College</div>
+        <p class="text-sm text-gray-400 leading-relaxed">Building foundations in programming, system analysis, and computational thinking — supporting both creative and technical work.</p>
+      </div>
+
+      <div class="glass card-hover rounded-2xl p-7 reveal relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-500/20 to-transparent rounded-full -mr-16 -mt-16"></div>
+        <div class="flex items-start justify-between mb-4 relative">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center">
+            <i class="fas fa-ruler-combined text-white text-xl"></i>
+          </div>
+          <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400">2015 — 2020</span>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-2">Davao Oriental State University</h3>
+        <div class="text-emerald-400 text-sm mb-3">Civil Engineering · 3rd Year College</div>
+        <p class="text-sm text-gray-400 leading-relaxed">Developed analytical precision, structured problem-solving, and disciplined project execution — skills that transfer directly to design and security work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 px-6 relative">
+  <div class="max-w-5xl mx-auto">
+    <div class="glass rounded-3xl p-8 md:p-14 relative overflow-hidden reveal">
+      <div class="absolute -top-20 -right-20 w-60 h-60 bg-gradient-to-br from-orange-500/30 to-pink-500/30 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-20 -left-20 w-60 h-60 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl"></div>
+
+      <div class="relative grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="text-sm text-orange-400 uppercase tracking-widest mb-3">Get In Touch</div>
+          <h2 class="font-display font-bold text-4xl md:text-5xl mb-4 leading-tight">
+            Let's create something <span class="gradient-text">remarkable</span>.
+          </h2>
+          <p class="text-gray-400 mb-6 leading-relaxed">
+            Available for freelance design projects, brand work, and creative collaborations. Reach out and let's discuss your next idea.
+          </p>
+          <div class="flex gap-3">
+            <a href="mailto:jademartunong12@gmail.com" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-orange-500/20 hover:text-orange-400 transition-all">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="tel:+639759880185" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-emerald-500/20 hover:text-emerald-400 transition-all">
+              <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://github.com/priamasis" target="_blank" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-gray-700 hover:text-white transition-all">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-pink-500/20 hover:text-pink-400 transition-all">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-yellow-500/20 hover:text-yellow-400 transition-all">
+              <i class="fab fa-behance"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <a href="mailto:jademartunong12@gmail.com" class="block glass rounded-2xl p-5 hover:border-orange-500/40 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <i class="fas fa-envelope text-orange-400"></i>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 uppercase tracking-wider">Email</div>
+                <div class="font-medium text-sm break-all">jademartunong12@gmail.com</div>
+              </div>
+            </div>
+          </a>
+          <a href="tel:+639759880185" class="block glass rounded-2xl p-5 hover:border-emerald-500/40 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <i class="fas fa-phone text-emerald-400"></i>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 uppercase tracking-wider">Phone</div>
+                <div class="font-medium text-sm">+63 975 988 0185</div>
+              </div>
+            </div>
+          </a>
+          <a href="https://github.com/priamasis" target="_blank" class="block glass rounded-2xl p-5 hover:border-gray-500/40 transition-all group">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gray-700/40 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <i class="fab fa-github text-white"></i>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 uppercase tracking-wider">GitHub</div>
+                <div class="font-medium text-sm">github.com/priamasis</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 px-6 border-t border-white/5 relative">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center font-display font-bold">J</div>
+      <span class="text-sm text-gray-400">© 2025 Jade Martin Tunong. All rights reserved.</span>
+    </div>
+    <div class="text-xs text-gray-500">
+      Designed &amp; built with <i class="fas fa-heart text-pink-500"></i> for creativity.
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></div>
+  <div class="lightbox-nav lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></div>
+  <div class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></div>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+    });
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('active');
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Skill bars
+  const skillSections = document.querySelectorAll('#skills .reveal');
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+          const width = bar.getAttribute('data-width');
+          setTimeout(() => bar.style.width = width + '%', 300);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  skillSections.forEach(s => skillObserver.observe(s));
+
+  // Count up
+  const counters = document.querySelectorAll('[data-count]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-count'));
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 40));
+        const interval = setInterval(() => {
+          current += step;
+          if (current >= target) { current = target; clearInterval(interval); }
+          el.textContent = current;
+        }, 30);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObserver.observe(c));
+
+  // Cursor glow
+  const cursorGlow = document.getElementById('cursorGlow');
+  document.addEventListener('mousemove', (e) => {
+    cursorGlow.style.left = e.clientX + 'px';
+    cursorGlow.style.top = e.clientY + 'px';
+  });
+
+  // Portfolio filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      portfolioItems.forEach(item => {
+        const cats = item.getAttribute('data-category').split(' ');
+        if (filter === 'all' || cats.includes(filter)) {
+          item.style.display = '';
+          setTimeout(() => item.style.opacity = '1', 50);
+        } else {
+          item.style.opacity = '0';
+          setTimeout(() => item.style.display = 'none', 300);
+        }
+      });
+    });
+  });
+
+  // Lightbox — all 7 portfolio items
+  const portfolioData = [
+    {
+      src: 'https://z-cdn-media.chatglm.cn/files/aab7586d-c234-4fd6-8b14-396f5a171038.jpg?auth_key=1886766762-20fe8b5d75b647dea59a303da6f95b70-0-49e3a98f380208f7d71d14d55f33dcee',
+      title: 'Tuna Panga Grilled — King Ben\'s',
+      desc: 'Promotional advertisement featuring grilled Tuna Panga with flame and smoke effects. Designed to showcase the restaurant\'s signature seafood dish with bold, appetizing visuals.'
+    },
+    {
+      src: 'https://z-cdn-media.chatglm.cn/files/4c0381f5-1386-434a-8833-c86709960646.jpg?auth_key=1886766762-7b076168be75443c88e07454a8710d52-0-9b486248390cab78e7483060b09bff89',
+      title: 'Sambuokan Promo — King Ben\'s',
+      desc: 'Special event promotion poster for Sambuokan Festival 2023. Featured Chicken BBQ with unlimited rice and a glass of iced tea for PHP 119.'
+    },
+    {
+      src: 'https://z-cdn-media.chatglm.cn/files/e18dc593-6b65-46b0-b54b-dfef6a117d04.jpg?auth_key=1886766762-990a012f1a854ad6a269403befc694ac-0-ec5ff64061c6dbf36841a6448eb132b9',
+      title: 'Chicken Inasal Unli-Rice — King Ben\'s',
+      desc: 'Promotional poster for Chicken Inasal with unlimited rice at PHP 170. Designed with flame elements and banana leaf presentation to evoke authentic Filipino BBQ dining.'
+    },
+    {
+      src: 'https://z-cdn-media.chatglm.cn/files/88816baa-001d-4d08-af26-c3b0c7aebd81.jpg?auth_key=1886768041-4909d6902f944106a5406fd3f99acce0-0-eed2bde0de92d042f4ebd7ca1cd19ede',
+      title: 'Y2K Posters — Retro Collage',
+      desc: 'A Y2K-style poster collage featuring retro elements — BAPE sneakers, Nokia phones, pink Cadillac, and magazine aesthetics like "BLISS" and "SPICY MAGAZINE". Captures the nostalgic pop culture vibe of the late 90s and early 2000s with rich colors and layered compositions.'
+    },
+    {
+      src: 'https://z-cdn-media.chatglm.cn/files/ca45ee54-99d0-4383-8217-97fa1bedbdb0.jpg?auth_key=1886768041-44070fd5388f4b50a7a8ba0aee62fec0-0-accdf4ae8cc108b448209b98529b8718',
+      title: 'Bauhaus MoMA — Visual Collection',
+      desc: 'A Bauhaus collection exploring the visual language of the legendary design movement. Geometric forms, striking color contrasts, and typographic experimentation come together in exhibition-style layouts.'
+    },
+    {
+      src: 'https://z-cdn-media.chatglm.cn/files/d4613045-a39f-411e-a1f7-fad782281b2a.jpg?auth_key=1886768041-45eb443b84fb42c1b22710958ace33a9-0-d46aa82968ed7aef797e143afb15d24d',
+      title: 'Illustrations — Creative Collage',
+      desc: 'A diverse collage of illustrations spanning music, cityscapes, and brand-themed artwork. Includes references to Mumbai, "The Warriors", "Just Do It", and Perrier — showcasing versatility across subjects.'
+    },
+    {
+      src: 'https://z-cdn-media.chatglm.cn/files/d3908f17-8069-48b3-8432-78ce52b5e50e.jpg?auth_key=1886768041-7e60d2fba9c640658ff3f3902f21ae41-0-ef6d12a79584feb1314934ae4289c187',
+      title: 'Street Wear — Urban Collection',
+      desc: 'A streetwear-themed design collection featuring creative apparel and poster concepts. Includes artistic figures, sunflower motifs, cartoon bears, and bold statements like "I Need Some Space" and "Sunflower Is Dead".'
+    }
+  ];
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    updateLightbox();
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function updateLightbox() {
+    const data = portfolioData[currentIndex];
+    lightboxImg.src = data.src;
+    lightboxCaption.innerHTML = `<h3 class="font-display font-bold text-xl mb-2">${data.title}</h3><p class="text-sm text-gray-400 max-w-xl mx-auto">${data.desc}</p>`;
+  }
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % portfolioData.length;
+    updateLightbox();
+  }
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + portfolioData.length) % portfolioData.length;
+    updateLightbox();
+  }
+
+  portfolioItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const idx = parseInt(item.getAttribute('data-index'));
+      if (!isNaN(idx)) openLightbox(idx);
+    });
+  });
+
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxNext').addEventListener('click', nextImage);
+  document.getElementById('lightboxPrev').addEventListener('click', prevImage);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+  });
+</script>
+
+</body>
+</html>
