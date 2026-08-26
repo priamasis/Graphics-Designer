@@ -872,16 +872,16 @@
           </div>
           <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-400">2024 — 2025</span>
         </div>
-        <div class="text-xs text-yellow-400 uppercase tracking-wider mb-1">Dynata Global · WFH</div>
-        <h3 class="font-display font-bold text-2xl mb-1">Cold Caller</h3>
-        <div class="text-xs text-gray-500 mb-4">6 Months Experience</div>
+        <div class="text-xs text-yellow-400 uppercase tracking-wider mb-1">Alex Jennings · WFH</div>
+        <h3 class="font-display font-bold text-2xl mb-1">Website Designer</h3>
+        <div class="text-xs text-gray-500 mb-4">2 years Experience</div>
         <p class="text-sm text-gray-400 leading-relaxed">
-          As a Cold Caller, I gained valuable experience communicating professionally with different types of people, following standard procedures, and delivering clear messages consistently. I learned how to stay calm and polite, handle questions or concerns effectively, and keep accurate records of every call and outcome. This role taught me discipline, resilience, and how to manage my time well to meet daily targets — skills that help me work reliably and communicate clearly in any position.
+          As a Web Designer, I gained valuable experience creating clean, functional layouts, following design standards, and building consistent, user-friendly interfaces. I learned how to translate ideas into visual designs, work with colors, typography, and layout structure, and ensure every page looks polished and easy to use. This role taught me attention to detail, patience, and how to manage my time well to meet project deadlines — skills that help me create reliable, professional designs in any position.
         </p>
         <div class="flex flex-wrap gap-2 mt-4">
-          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Communication</span>
-          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Time Management</span>
-          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Resilience</span>
+          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">React</span>
+          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Node.js</span>
+          <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-gray-300">Tailwind CSS</span>
         </div>
       </div>
 
